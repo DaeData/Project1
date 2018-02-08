@@ -11806,14 +11806,14 @@ div#notebook {
 \boldsymbol{H_A:} \mu_c &gt; \mu_i $</p>
 <p>$\mu_c =$ word congruency</p>
 <p>$\mu_i =$ word incongruency</p>
-<p>The null hypothesis states that the congruent($\mu_c$) times and the incongruent($\mu_i$) times will remain the same for the Stroop test.  The alternative hypothesis states that the times for the incongruent test will be greater than the congruent times. We use a t-test because our population Standard Deviation is not known, and our sample size is less than 30.</p>
+<p>Because the populations are the same for the two tests, a paired sample dependent t-test will be performed. The null hypothesis states that the congruent($\mu_c$) times and the incongruent($\mu_i$) times will remain the same for the Stroop test.  The alternative hypothesis states that the times for the incongruent test will be greater than the congruent times. We use a t-test because our population Standard Deviation is not known, and our sample size is less than 30.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11831,7 +11831,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stroop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./stroopdata.csv&#39;</span><span class="p">)</span>
@@ -11844,7 +11844,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">stroop</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">,</span> <span class="s1">&#39;Incongruent&#39;</span><span class="p">])</span>
@@ -12093,7 +12093,7 @@ rJQDhZmZlXKgMDOzUg4UZmZWyoHCzMxK/T8Ga8ErL0+ZnQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span> <span class="o">=</span> <span class="n">stroop</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">]</span>
@@ -12736,7 +12736,7 @@ jYk5AIDGxBwAQGNiDgCgsR9XHdSXdHDGpAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stroop</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
@@ -12784,7 +12784,7 @@ max    22.328000    35.255000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scround</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -12830,7 +12830,7 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unrounded Mode Results</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">stroop</span><span class="o">.</span><span class="n">mode</span><span class="p">())</span>
