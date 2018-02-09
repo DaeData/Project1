@@ -11801,19 +11801,20 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The Stroop Effect was developed by John Ridley Stroop.   In the Stroop study, subjects are shown a list of words, each in a different color of ink.  This study is measured in two ways. In the first measurement(condition), the subjects are first given a list where the color of the word matches the word. The second measurement(condition) differs in that the color of ink and the word do not match.</p>
-<p>The independent variable in the study is the color/word association.  The dependent variable is time in seconds it takes the subject to speak the word.</p>
+<p>The independent variable in the study is the color/word association.  The dependent variable is time in seconds it takes the subject to speak the proper word.</p>
+<p>In this study, we are predicting(hypothesis) how the population would respond to the test based on our results of the 24 subjects(sample) in this study.  Because the subjects are the same for the two tests, a paired sample (dependent) t-test will be performed.  We use a t-test because our population Standard Deviation is not known, and our sample size is less than 30.</p>
 <h3 id="The-hypothesis-for-this-test-is-expressed-as-thus:">The hypothesis for this test is expressed as thus:<a class="anchor-link" href="#The-hypothesis-for-this-test-is-expressed-as-thus:">&#182;</a></h3><p>$\boldsymbol{H_0:} \mu_c = \mu_i  \\
-\boldsymbol{H_A:} \mu_c &gt; \mu_i $</p>
+\boldsymbol{H_A:} \mu_i &gt; \mu_c $</p>
 <p>$\mu_c =$ word congruency</p>
 <p>$\mu_i =$ word incongruency</p>
-<p>Because the populations are the same for the two tests, a paired sample dependent t-test will be performed. The null hypothesis states that the congruent($\mu_c$) times and the incongruent($\mu_i$) times will remain the same for the Stroop test.  The alternative hypothesis states that the times for the incongruent test will be greater than the congruent times. We use a t-test because our population Standard Deviation is not known, and our sample size is less than 30.</p>
+<p>The null hypothesis states that the congruent($\mu_c$) times and the incongruent($\mu_i$) times will remain the same for the Stroop test.  The alternative hypothesis states that the times for the incongruent test will be greater than the congruent times.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11831,7 +11832,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stroop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./stroopdata.csv&#39;</span><span class="p">)</span>
@@ -11844,7 +11845,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sn</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">stroop</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">,</span> <span class="s1">&#39;Incongruent&#39;</span><span class="p">])</span>
@@ -12093,7 +12094,7 @@ rJQDhZmZlXKgMDOzUg4UZmZWyoHCzMxK/T8Ga8ErL0+ZnQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span> <span class="o">=</span> <span class="n">stroop</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">]</span>
@@ -12736,7 +12737,7 @@ jYk5AIDGxBwAQGNiDgCgsR9XHdSXdHDGpAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stroop</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
@@ -12784,7 +12785,7 @@ max    22.328000    35.255000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scround</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -12830,7 +12831,7 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Unrounded Mode Results</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">stroop</span><span class="o">.</span><span class="n">mode</span><span class="p">())</span>
